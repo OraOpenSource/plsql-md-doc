@@ -60,14 +60,14 @@ Constant | Description
 {{header}}
 ```
 
-{{#if tickets}}
+{{#if issues}}
 ### Tickets
 Issue | Description
 --- | ---
-{{#each tickets}}
-[{{number}}](todo) | {{description}}
+{{#each issues}}
+[{{number}}](/issues/{{number}}) | {{description}}
 {{/each}}
-{{/if}} {{! tickets}}
+{{/if}} {{! issues}}
 
 
 {{#if displayParams}}

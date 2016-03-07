@@ -116,7 +116,7 @@ for (packageName in packages){
         typeDesc:[], // TODO mdsouza: better name for this
         code: '',
         devNotes: '',
-        tickets: [],
+        issues: [],
         name: '',
         type: method.ctx.type
       }
@@ -143,11 +143,11 @@ for (packageName in packages){
         case 'devnotes':
           myMethod.devNotes = tag.string;
           break;
-        case 'tickets':
+        case 'issues':
           //This will parse the current issue to be <issue reference> | <issue description>
           /^\s*([\S]+)\s*(.*)/.exec(tag.string);
 
-          myMethod.tickets.push({
+          myMethod.issues.push({
             number: RegExp.$1.replace(/^#+/,''), //Remove any leading hashes to get the ticket number
             description: RegExp.$2
           })
