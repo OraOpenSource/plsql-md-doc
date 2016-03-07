@@ -47,7 +47,7 @@ Example:
 /**
  * ...
  * @example
- * 
+ *
  * select *
  * into l_temp
  * from dual;
@@ -58,9 +58,9 @@ Template:
 ```md
 {{#if example}}
 ### Example
-\`\`\`plsql
+```plsql
 {{{example}}}
-\`\`\`
+```
 {{/if}}
 ```
 
