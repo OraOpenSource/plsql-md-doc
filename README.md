@@ -13,6 +13,7 @@
 
 Example:
 ```plsql
+/**
  * ...
  * @author Martin Giffy D'Souza
  * ...
@@ -44,6 +45,7 @@ The `@issue` tag is used to reference any main issues for a give method. If a ha
 
 Example: _Note: the leading hash does not matter_
 ```plsql
+/**
  * ...
  * @issue #12 Initial creation
  * @issue 23 Some major update
