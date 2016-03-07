@@ -7,13 +7,12 @@
 
 ### Tags
 
-#### `@author`
+#### <a name="tag-author"></a>`@author`
 
 `@author <name>`
 
 Example:
 ```plsql
-/**
  * ...
  * @author Martin Giffy D'Souza
  * ...
@@ -31,6 +30,12 @@ Result:
 Author: Martin Giffy D'Souza
 ```
 
+#### `@created`
+
+`@created` Is used to note the date the method was created.
+
+Example [`@author`](#tag-author)
+
 #### `@issue`
 
 `@issue <number> <description (optional)>`
@@ -39,7 +44,6 @@ The `@issue` tag is used to reference any main issues for a give method. If a ha
 
 Example: _Note: the leading hash does not matter_
 ```plsql
-/**
  * ...
  * @issue #12 Initial creation
  * @issue 23 Some major update
