@@ -7,6 +7,30 @@
 
 ### Tags
 
+#### `@author`
+
+`@author <name>`
+
+Example:
+```plsql
+/**
+ * ...
+ * @author Martin Giffy D'Souza
+ * ...
+```
+
+Template Reference:
+
+```md
+Author: {{author}}
+```
+
+Result:
+
+```md
+Author: Martin Giffy D'Souza
+```
+
 #### `@issue`
 
 `@issue <number> <description (optional)>`
@@ -23,7 +47,7 @@ Example: _Note: the leading hash does not matter_
  * ...
 ```
 
-You can then reference the issues as:
+Template Reference:
 ```md
 {{#if issues}}
 ### Issues
