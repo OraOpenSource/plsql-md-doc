@@ -55,25 +55,25 @@ Example:
 ```
 
 Template:
-```md
+<pre>
 {{#if example}}
 ### Example
 ```plsql
 {{{example}}}
-``````
-{{/if}}
 ```
+{{/if}}
+</pre>
 
 Result:
 
-```md
+<pre>
 ### Example
 ```plsql
 select *
 into l_temp
 from dual;
-``````
 ```
+</pre>
 
 #### `@issue`
 
