@@ -60,7 +60,7 @@ Template:
 ### Example
 ```plsql
 {{{example}}}
-```
+``````
 {{/if}}
 ```
 
@@ -68,11 +68,11 @@ Result:
 
 ```md
 ### Example
-\`\`\`plsql
+```plsql
 select *
 into l_temp
 from dual;
-\`\`\`
+``````
 ```
 
 #### `@issue`
