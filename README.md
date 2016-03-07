@@ -2,10 +2,15 @@
 
 ** THIS PROJECT IS IN ALPHA STATE - DO NOT USE **
 
+- [Tags](#tags)
+  - [`@author`](#tag-author)
+  - [`@created`](#tag-created)
+  - [`@example`](#tag-example)
+  - [`@issue`](#tag-issue)
 
 ## Documentation
 
-### Tags
+### <a name="tags"></a>Tags
 
 #### <a name="tag-author"></a>`@author`
 
@@ -31,13 +36,13 @@ Result:
 Author: Martin Giffy D'Souza
 ```
 
-#### `@created`
+#### <a name="tag-created"></a>`@created`
 
 `@created` Is used to note the date the method was created.
 
 Example [`@author`](#tag-author)
 
-#### `@example`
+#### <a name="tag-example"></a>`@example`
 
 This tag allows you to include a full multiline example of your code along with any results.
 
@@ -75,7 +80,7 @@ from dual;
 ```
 </pre>
 
-#### `@issue`
+#### <a name="tag-issue"></a>`@issue`
 
 `@issue <number> <description (optional)>`
 
@@ -112,26 +117,4 @@ Issue | Description
 [12](/issues/12) |
 [23](/issues/23) | Some major update
 [46](/issues/46) |
-```
-
-## Code Setup
-
-```plsql
-
-/**
- * Method comments
- *
- *
- * Notes:
- *  -
- *
- * Related Tickets:
- *  - #25
- *
- * @author Martin Giffy D'Souza
- * @created 29-Dec-2015
- * @return true/false
- */
-function is_developer
-  return boolean
 ```
