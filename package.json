@@ -1,0 +1,16 @@
+{
+  "name": "TODO",
+  "author": "Martin Giffy D'Souza",
+  "version": "1.0.0",
+  "description": "OOS Utils",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "TODO"
+  },
+  "devDependencies": {
+    "dox" : "0.8.*",
+    "handlebars" : "4.0.*",
+    "fs-extra" : "0.26.*"
+  }
+}
