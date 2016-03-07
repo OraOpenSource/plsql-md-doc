@@ -37,11 +37,49 @@ Author: Martin Giffy D'Souza
 
 Example [`@author`](#tag-author)
 
+#### `@example`
+
+This tag allows you to include a full multiline example of your code along with any results.
+
+Example:
+
+```plsql
+/**
+ * ...
+ * @example
+ * 
+ * select *
+ * into l_temp
+ * from dual;
+ * ...
+```
+
+Template:
+```md
+{{#if example}}
+### Example
+\`\`\`plsql
+{{{example}}}
+\`\`\`
+{{/if}}
+```
+
+Result:
+
+```md
+### Example
+\`\`\`plsql
+select *
+into l_temp
+from dual;
+\`\`\`
+```
+
 #### `@issue`
 
 `@issue <number> <description (optional)>`
 
-The `@issue` tag is used to reference any main issues for a give method. If a hash (`#`) is prefixed to the issue number it will be removed from the issue. The reason it is removed is that most references to the hash are for GitHub or Bitbucket purposes. They don't work for links as the hash will be considered as an anchor tag.
+The `@issue` tag is used to reference multiple main issues for a give method. If a hash (`#`) is prefixed to the issue number it will be removed from the issue. The reason it is removed is that most references to the hash are for GitHub or Bitbucket purposes. They don't work for links as the hash will be considered as an anchor tag.
 
 Example: _Note: the leading hash does not matter_
 ```plsql
