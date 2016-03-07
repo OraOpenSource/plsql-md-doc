@@ -143,16 +143,12 @@ for (packageName in packages){
         case 'devnotes':
           myMethod.devNotes = tag.string;
           break;
-        // TODO mdsouza: list this a issues
         case 'tickets':
-          // console.log('Ticket found:', tag);
-          // myMethod.tickets = tag.string;
+          //This will parse the current issue to be <issue reference> | <issue description>
           /^\s*([\S]+)\s*(.*)/.exec(tag.string);
 
-          console.log(RegExp.$1);
-          console.log(RegExp.$2);
           myMethod.tickets.push({
-            number: RegExp.$1,
+            number: RegExp.$1.replace(/^#+/,''), //Remove any leading hashes to get the ticket number
             description: RegExp.$2
           })
           break;
