@@ -115,7 +115,7 @@ for (packageName in packages){
         params:[],
         typeDesc:[], // TODO mdsouza: better name for this
         code: '',
-        devNotes: '',
+        // devNotes: '',
         issues: [],
         name: '',
         type: method.ctx.type
@@ -140,9 +140,10 @@ for (packageName in packages){
         case 'example':
           myMethod.example = tag.string;
           break;
-        case 'devnotes':
-          myMethod.devNotes = tag.string;
-          break;
+        // TODO mdsouza: do we support dev notes or not?
+        // case 'devnotes':
+        //   myMethod.devNotes = tag.string;
+        //   break;
         case 'issues':
           //This will parse the current issue to be <issue reference> | <issue description>
           /^\s*([\S]+)\s*(.*)/.exec(tag.string);
