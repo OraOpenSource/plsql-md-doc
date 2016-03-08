@@ -54,6 +54,7 @@ Constant | Description
 <p>
 {{{description}}}
 </p>
+Author: {{author}}
 
 ### Syntax
 ```plsql
@@ -70,7 +71,7 @@ Issue | Description
 {{/if}} {{! issues}}
 
 
-{{#if displayParams}}
+{{#ifCond params '||' return}}
 ### Parameters
 Name | Description
 --- | ---
@@ -80,13 +81,14 @@ Name | Description
 {{#if return}}
 *return* | {{return}}
 {{/if}} {{! return}}
-{{/if}} {{! displayParams}}
+{{/ifCond}} {{! displayParams}}
 
 
 {{#if example}}
 ### Example
-
+```plsql
 {{{example}}}
+```
 {{/if}}
 
 
