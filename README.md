@@ -7,6 +7,7 @@
   - [`@created`](#tag-created)
   - [`@example`](#tag-example)
   - [`@issue`](#tag-issue)
+  - [`@param`](#tag-param)
 
 ## Documentation
 
@@ -118,3 +119,46 @@ Issue | Description
 [23](/issues/23) | Some major update
 [46](/issues/46) |
 ```
+
+
+#### <a name="tag-param"></a>`@param`
+
+`@param <name> <description> (optional)`
+
+The `@param` tag is used to reference parameters for a given method. Use one for each parameter which should match the name of each parameter.
+
+Example:
+```plsql
+/**
+ * ...
+ * @param p_app_id APEX application ID
+ * @param p_page_id APEX page ID
+ * @param p_session_id
+ * ...
+```
+
+Template Reference:
+```md
+{{#if params}}
+### Parameters
+Name | Description
+--- | ---
+{{#each params}}
+{{name}} | {{{description}}}
+{{/each}}
+{{/if}} {{! params}}
+```
+
+Result:
+
+```md
+### Parameters
+Name | Description
+--- | ---
+p_app_id | APEX application ID
+p_page_id | APEX page ID
+p_session_id | 
+```
+
+
+-- TODO mdsouza: document handBars extensions
