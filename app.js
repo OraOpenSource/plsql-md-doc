@@ -19,7 +19,7 @@ var config = {
     path : path.resolve(__dirname,'./docs')
   },
   template : {
-    path : path.resolve(__dirname,'./template-package.md')
+    path : path.resolve(__dirname,'./templates/package.md')
   }
 };
 
