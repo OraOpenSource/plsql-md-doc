@@ -4,4 +4,4 @@ This folder contains some recommended templates that can be used for generating 
 
 Template | Description
 --- | ---
-`package.md` | For packages.
+[`package.md`](package.md) | For packages.
