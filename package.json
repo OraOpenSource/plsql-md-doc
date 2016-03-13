@@ -1,12 +1,12 @@
 {
-  "name": "TODO",
+  "name": "PL/SQL to Markdown",
   "author": "Martin Giffy D'Souza",
   "version": "1.0.0",
-  "description": "OOS Utils",
+  "description": "Converts PL/SQL javadoc documentation to markdown",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "TODO"
+    "url": "https://github.com/OraOpenSource/plsql-md-doc.git"
   },
   "devDependencies": {
     "dox" : "0.8.*",
