@@ -8,6 +8,7 @@
   - [`@example`](#tag-example)
   - [`@issue`](#tag-issue)
   - [`@param`](#tag-param)
+  - [`@return`](#tag-return)
 
 ## Documentation
 
@@ -41,7 +42,7 @@ Author: Martin Giffy D'Souza
 
 `@created` Is used to note the date the method was created.
 
-Example [`@author`](#tag-author)
+Example: see [`@author`](#tag-author)
 
 #### <a name="tag-example"></a>`@example`
 
@@ -123,7 +124,7 @@ Issue | Description
 
 #### <a name="tag-param"></a>`@param`
 
-`@param <name> <description> (optional)`
+`@param <name> <description (optional)>`
 
 The `@param` tag is used to reference parameters for a given method. Use one for each parameter which should match the name of each parameter.
 
@@ -157,7 +158,47 @@ Name | Description
 --- | ---
 p_app_id | APEX application ID
 p_page_id | APEX page ID
-p_session_id | 
+p_session_id |
+```
+
+#### <a name="tag-return"></a>`@return`
+
+`@return` Is used to describe the object returned by a function.
+
+
+Example:
+```plsql
+/**
+ * ...
+ * @param p_user_id
+ * @return User first name
+ * ...
+```
+
+Template Reference: _Note: since since the `@return` option is very similar to an [`@param`](#tag-param), it is recommended that it is included with parameters._
+
+```md
+{{#ifCond params '||' return}}
+### Parameters
+Name | Description
+--- | ---
+{{#each params}}
+{{name}} | {{{description}}}
+{{/each}}
+{{#if return}}
+*return* | {{return}}
+{{/if}} {{! return}}
+{{/ifCond}} {{! params or return}}
+```
+
+Result:
+
+```md
+### Parameters
+Name | Description
+--- | ---
+p_user_id |
+*return* | User first name
 ```
 
 
