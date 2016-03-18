@@ -2,6 +2,7 @@
 
 ** THIS PROJECT IS IN ALPHA STATE - DO NOT USE **
 
+- [Constants](#constants)
 - [Tags](#tags)
   - [`@author`](#tag-author)
   - [`@created`](#tag-created)
@@ -11,6 +12,11 @@
   - [`@return`](#tag-return)
 
 ## Documentation
+
+### <a name ="config"></a>`config.json`
+
+TODO: reference generate.js
+
 
 ### <a name="tags"></a>Tags
 
@@ -202,4 +208,83 @@ p_user_id |
 ```
 
 
--- TODO mdsouza: document handBars extensions
+### <a name="constants"></a>Constants
+
+Constants should be placed at the top of the package. There should only be one JavaDoc documentation area for constants. Constants are documented using the `@constant` tag.
+
+Example:
+```plsql
+-- CONSTANTS
+/**
+ * @constant gc_color_red The css safe color for red
+ * @constant gc_color_blue The css safe color for blue
+ */
+
+gc_color_red constant varchar2(10) := 'red';
+gc_color_blue constant varchar2(10) := 'blue';
+```
+
+Template Reference: The `@constant` tag is referenced in the template as an array of objects. Each entry contains three attributes: `name`, `code`, `description`. The following example creates a header entry and a table of constants along with the code.
+
+```md
+{{#each constants}}
+{{#if @first}}
+## Constants
+
+Name | Code | Description
+--- | --- | ---{{/if}}{{! first}}
+{{name}} | `{{{code}}}` | {{description}}{{/each}}
+```
+
+Result:
+
+```md
+## Constants
+
+Name | Code | Description
+--- | --- | ---
+gc_color_red | `gc_color_red constant varchar2(10) := 'red';` | The css safe color for red
+gc_color_blue | `gc_color_blue constant varchar2(10) := 'blue';` | The css safe color for blue
+```
+
+### <a name="types"></a>Types
+
+Types are very similar to [constants](#constants). They should be placed at the top of the package. There should only be one JavaDoc documentation area for constants. Types are documented using the `@type` tag.
+
+Example:
+```plsql
+-- TYPES
+/**
+ * @type rec_param Some custom record
+ * @type tab_param Table of custom record
+ */
+type rec_param is record(
+  name varchar2(255),
+  val varchar2(4000));
+
+type tab_param is table of rec_param index by binary_integer;
+```
+
+Template Reference: The `@type` tag is referenced in the template as an array of objects. Each entry contains three attributes: `name`, `code`, `description`. The following example creates a header entry and a table of types along with the code. Note: types may contain multiline blocks of code. This does not work well with markdown tables. To get around this issue it is recommended to use the notation shown in the example.
+
+```md
+{{#each types}}
+{{#if @first}}
+## Types
+
+Name | Code | Description
+--- | --- | ---{{/if}}{{! first}}
+{{name}} | <pre>{{{lineBreakToBr code}}}</pre> | {{description}}{{/each}}
+```
+
+Result:
+
+```md
+## Types
+
+Name | Code | Description
+--- | --- | ---
+rec_param | <pre>type rec_param is record(<br />  name varchar2(255),<br />  val varchar2(4000));</pre> | Some custom record
+tab_param | <pre>type tab_param is table of rec_param index by binary_integer;</pre> | Table of custom record
+
+```
