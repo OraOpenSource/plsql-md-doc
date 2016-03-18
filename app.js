@@ -1,9 +1,9 @@
 var
   path = require('path'),
-  fs = require('./fs.js'),
+  fs = require('./lib/fs.js'),
   fse = require('fs-extra'),
-  Handlebars = require('./handlebars.js'),
-  dox = require('./dox.js'),
+  Handlebars = require('./lib/handlebars.js'),
+  dox = require('./lib/dox.js'),
   // extend = require('util')._extend,
   extend = require('node.extend'), // TODO mdsouza: see which one I need
 
