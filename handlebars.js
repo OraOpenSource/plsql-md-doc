@@ -7,6 +7,11 @@ Handlebars.registerHelper('toUpperCase', function(str) {
   return str.toUpperCase();
 });
 
+// TODO mdsouza: comments
+Handlebars.registerHelper('lineBreakToBr', function(str) {
+  return str.replace(/\n/g,'<br />');
+});
+
 Handlebars.registerHelper('initCap', function(str) {
   if (str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
@@ -38,6 +43,27 @@ Handlebars.registerHelper('ifCond', function (v1, operator, v2, options) {
     default:
       return options.inverse(this);
   }
+});
+
+
+// TODO mdsouza: create functions for getTypes, getMethods, getConstants
+// TODO mdsouza: delete
+Handlebars.registerHelper('entityFilter', function(entityType, options) {
+  var
+    retEntities = []
+  ;
+
+  console.log(entityType);
+
+  options.data.root.entities.forEach(function(entity){
+    if (entity.type === 'typesBAD'){
+      retEntities.push(entity);
+    }
+  });//entities.forEach
+
+  console.log(retEntities);
+
+  return options.fn(retEntities);
 });
 
 
