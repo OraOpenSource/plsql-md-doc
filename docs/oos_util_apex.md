@@ -24,8 +24,8 @@ gc_color_blue | `gc_color_blue constant varchar2(10) := 'blue';` | The css safe 
 
 Name | Code | Description
 --- | --- | ---
-rec_param | <code>type rec_param is record(<br />  name varchar2(255),<br>  val varchar2(4000));<code> | todo rec_param
-tab_param | <pre><code>type tab_param is table of rec_param index by binary_integer;<code></pre> | todo tab_param
+rec_param | <pre><codetype rec_param is record(<br />  name varchar2(255),<br>  val varchar2(4000));</code></pre> | todo rec_param
+tab_param | <pre><code>type tab_param is table of rec_param index by binary_integer;</code></pre> | todo tab_param
 
 
 ## <a name="is_developer"></a>IS_DEVELOPER Function
