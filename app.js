@@ -83,14 +83,7 @@ for (var key in config.folders){
 config.folders.forEach(function(folder){
   var
     files = fs.readdirSync(path.resolve(folder.srcPath)),
-    file = {
-      ext: '',
-      name: '',
-      path: ''
-    },
-    template = Handlebars.compile(folder.templateContent),
-    markdown,
-    entities
+    template = Handlebars.compile(folder.templateContent)
   ;
 
   // Create and wipe debug folder
@@ -102,12 +95,19 @@ config.folders.forEach(function(folder){
 
   for (var i in files){
     var
+      file = {
+        ext: '',
+        name: '',
+        path: ''
+      },
       data = {
         name:'',
         types: [],
         constants: [],
         methods: []
-      }
+      },
+      markdown,
+      entities
     ;
 
     if (1==2 ||
