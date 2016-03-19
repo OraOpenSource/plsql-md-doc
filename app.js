@@ -6,14 +6,27 @@ var
   dox = require('./lib/dox.js'),
   extend = require('node.extend'),
   pmd = require('./lib/pmd.js'),
-
-  debug = function(){
-    if (config.debug){
-      console.log.apply(console.log, arguments);
-      console.log('');
-    }
-  }//debug
+  debug = {}
 ;
+
+debug.folderPath = path.resolve(__dirname, 'debug');
+debug.log = function(){
+  if (config.debug){
+    console.log.apply(console.log, arguments);
+    console.log('');
+  }
+}//debug
+
+debug.logFile = function (fileName, fileContent){
+  fs.writeFileSync(
+    path.resolve(debug.folderPath, fileName),
+    fileContent);
+}// debug.logFile
+
+debug.clearDir = function (){
+  fs.emptyDirSync(debug.folderPath);
+}// debug.clearDir
+
 
 
 // Handle parameters
@@ -40,7 +53,7 @@ if (!userConfig[arguments.project]){
 var config = extend(true, {}, defaultConfig, userConfig[arguments.project]);
 
 // only call debug from this point on
-debug('config: ', config);
+debug.log('config: ', config);
 
 
 
@@ -143,15 +156,13 @@ config.folders.forEach(function(folder){
 
       // Output JSON data
       if (config.debug){
-        fs.writeFileSync(
-          path.resolve(__dirname, 'debug/' + file.name + file.ext + '.json'),
-          JSON.stringify(data, null, '  '));
+        debug.logFile(file.name + file.ext + '.json', JSON.stringify(data, null, '  '));
       }
 
       markdown = template(data);
 
       if (config.debug){
-        fs.writeFileSync(path.resolve(__dirname, 'debug/',file.name + file.ext + '.md'), markdown);
+        debug.logFile(file.name + file.ext + '.md', markdown);
       }
 
       // Write file
