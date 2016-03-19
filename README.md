@@ -19,7 +19,7 @@
 TODO: reference generate.js
 
 ### <a name ="ignore"></a>Ignore
-Blocks of code can be ingored by using a `!`. Example:
+Blocks of code can be ignored by using a `!`. These won't be available for the template to process at all. Example:
 
 ```md
 /**

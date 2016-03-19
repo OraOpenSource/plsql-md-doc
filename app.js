@@ -147,14 +147,11 @@ config.folders.forEach(function(folder){
         continue; // Skip this loop iteration
       }
 
-      // Output JSON data
-      if (config.debug){
-        debug.logFile(file.name + file.ext + '.json', JSON.stringify(data, null, '  '));
-      }
-
       markdown = template(data);
 
+      // Output JSON and md data
       if (config.debug){
+        debug.logFile(file.name + file.ext + '.json', JSON.stringify(data, null, '  '));
         debug.logFile(file.name + file.ext + '.md', markdown);
       }
 
