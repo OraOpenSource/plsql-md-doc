@@ -1,5 +1,5 @@
 {
-  "name": "PL/SQL to Markdown",
+  "name": "PLSQL to Markdown",
   "author": "Martin Giffy D'Souza",
   "version": "1.0.0",
   "description": "Converts PL/SQL javadoc documentation to markdown",
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "dox": "0.8.*",
-    "fs-extra": "0.26.*",
+    "fs-extra": "^0.26.7",
     "handlebars": "4.0.*",
     "node.extend": "^1.1.5"
   }
