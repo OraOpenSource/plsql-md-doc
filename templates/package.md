@@ -11,7 +11,6 @@
 {{/each}}
 
 
-
 {{! Constants}}
 {{#each constants}}
 {{#if @first}}
@@ -35,6 +34,7 @@ Name | Code | Description
 
 
 {{#each methods}}
+{{#unless isPrivate}} {{! Don't show private methods}}
 ## <a name="{{name}}"></a>{{toUpperCase name}} {{initCap type}}
 
 
@@ -81,5 +81,5 @@ Name | Description
 
 
 
-
+{{/unless}}
 {{/each}} {{! methods }}

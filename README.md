@@ -9,6 +9,7 @@
   - [`@example`](#tag-example)
   - [`@issue`](#tag-issue)
   - [`@param`](#tag-param)
+  - [`@private`](#tag-private)
   - [`@return`](#tag-return)
 
 ## Documentation
@@ -17,6 +18,18 @@
 
 TODO: reference generate.js
 
+### <a name ="ignore"></a>Ignore
+Blocks of code can be ingored by using a `!`. Example:
+
+```md
+/**
+ * Not ignored.
+ */
+
+/*!
+ * Ignored.
+ */
+ ```
 
 ### <a name="tags"></a>Tags
 
@@ -167,6 +180,34 @@ p_page_id | APEX page ID
 p_session_id |
 ```
 
+
+
+#### <a name="tag-private"></a>`@private`
+
+The `@private` tag is used on private methods. You can chose if these methods should be displayed by the template. Reference it in the template by using the `isPrivate` attribute.
+
+Each element in [`types`](#types) and [`constants`](#constants) also contain the `isPrivate` boolean attribute. It is recommended to apply this tag to internal (package body) constants and types.
+
+Example:
+```plsql
+/**
+ * ...
+ * @private
+ * ...
+```
+
+Template Reference:
+```md
+{{#each methods}}
+{{#unless isPrivate}}
+
+Items shown here will only be displayed if not private
+{{/unless}}
+{{/each}}
+```
+
+
+
 #### <a name="tag-return"></a>`@return`
 
 `@return` Is used to describe the object returned by a function.
@@ -224,7 +265,7 @@ gc_color_red constant varchar2(10) := 'red';
 gc_color_blue constant varchar2(10) := 'blue';
 ```
 
-Template Reference: The `@constant` tag is referenced in the template as an array of objects. Each entry contains three attributes: `name`, `code`, `description`. The following example creates a header entry and a table of constants along with the code.
+Template Reference: The `@constant` tag is referenced in the template as an array of objects. Each entry contains three attributes: `name`, `code`, `description`, `isPrivate`. The following example creates a header entry and a table of constants along with the code.
 
 ```md
 {{#each constants}}
@@ -265,7 +306,7 @@ type rec_param is record(
 type tab_param is table of rec_param index by binary_integer;
 ```
 
-Template Reference: The `@type` tag is referenced in the template as an array of objects. Each entry contains three attributes: `name`, `code`, `description`. The following example creates a header entry and a table of types along with the code. Note: types may contain multiline blocks of code. This does not work well with markdown tables. To get around this issue it is recommended to use the notation shown in the example.
+Template Reference: The `@type` tag is referenced in the template as an array of objects. Each entry contains three attributes: `name`, `code`, `description`, `isPrivate`. The following example creates a header entry and a table of types along with the code. Note: types may contain multiline blocks of code. This does not work well with markdown tables. To get around this issue it is recommended to use the notation shown in the example.
 
 ```md
 {{#each types}}

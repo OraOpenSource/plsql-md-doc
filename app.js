@@ -3,10 +3,9 @@ var
   fs = require('./lib/fs.js'),
   fse = require('fs-extra'),
   Handlebars = require('./lib/handlebars.js'),
-  dox = require('./lib/dox.js'),
   extend = require('node.extend'),
-  pmd = require('./lib/pmd.js'),
-  debug = require('./lib/debug.js')
+  debug = require('./lib/debug.js'),
+  pmd = require('./lib/pmd.js')(debug)
 ;
 
 
@@ -33,6 +32,7 @@ if (!userConfig[arguments.project]){
 
 var config = extend(true, {}, defaultConfig, userConfig[arguments.project]);
 debug.debug = config.debug;
+pmd.debug = debug
 
 // only call debug from this point on
 debug.log('config: ', config);
@@ -50,7 +50,7 @@ for (var key in config.folders){
 
   // Convert the regexp into a regexp object
   if (config.folders[key].fileFilterRegexp.length > 0){
-    config.folders[key].fileFilterRegexp = new RegExp(config.folders[key].fileFilterRegexp, 'g');
+    config.folders[key].fileFilterRegexp = new RegExp(config.folders[key].fileFilterRegexp, 'i');
   }
 
   // Check that template exists
@@ -102,8 +102,10 @@ config.folders.forEach(function(folder){
         methods: []
       },
       markdown,
-      entities
+      entities,
+      skipFile = false //Skips the current file if no JavaDoc detected
     ;
+
 
     if (1==2 ||
       (folder.fileFilterRegexp instanceof RegExp && folder.fileFilterRegexp.test(files[i])) ||
@@ -129,12 +131,21 @@ config.folders.forEach(function(folder){
           case pmd.DOCTYPES.CONSTANTS:
             data.constants = entity.constants;
             break;
+          case undefined:
+            debug.log('\nFile:', files[i], "doesn't appear to have any JavaDoc in it. Skipping");
+            skipFile = true;
+            break;
           default:
+            debug.log('entity', entity);
             console.log('Unknown type: ', entity.type);
             process.exit();
             break;
         }//switch
       });//entities.forEach
+
+      if (skipFile){
+        continue; // Skip this loop iteration
+      }
 
       // Output JSON data
       if (config.debug){
