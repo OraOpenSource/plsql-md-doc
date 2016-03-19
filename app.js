@@ -6,27 +6,8 @@ var
   dox = require('./lib/dox.js'),
   extend = require('node.extend'),
   pmd = require('./lib/pmd.js'),
-  debug = {}
+  debug = require('./lib/debug.js')
 ;
-
-debug.folderPath = path.resolve(__dirname, 'debug');
-debug.log = function(){
-  if (config.debug){
-    console.log.apply(console.log, arguments);
-    console.log('');
-  }
-}//debug
-
-debug.logFile = function (fileName, fileContent){
-  fs.writeFileSync(
-    path.resolve(debug.folderPath, fileName),
-    fileContent);
-}// debug.logFile
-
-debug.clearDir = function (){
-  fs.emptyDirSync(debug.folderPath);
-}// debug.clearDir
-
 
 
 // Handle parameters
@@ -51,6 +32,7 @@ if (!userConfig[arguments.project]){
 }
 
 var config = extend(true, {}, defaultConfig, userConfig[arguments.project]);
+debug.debug = config.debug;
 
 // only call debug from this point on
 debug.log('config: ', config);
@@ -132,7 +114,7 @@ config.folders.forEach(function(folder){
       file.path = path.resolve(folder.srcPath, files[i]);
 
       data.name = file.name;
-      entities = pmd.processFile(file);
+      entities = pmd.processFile(file, debug);
 
       // Load the data arrays with appropriate fields
       entities.forEach(function(entity){
