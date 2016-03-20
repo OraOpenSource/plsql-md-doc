@@ -13,22 +13,10 @@ var
 var arguments = pmd.getArguments(process);
 
 var
-  defaultConfig = {
-    "projectName" : "",
-    "debug" : false,
-    "folders" : {},
-    "templates" : {},
-    "toc" : {
-      "fileName" : "index.md"
-    }
-  },
-  defaultConfigFolder = {
-    "srcPath" : "",
-    "outputPath" : "",
-    "template" : "",
-    "fileFilterRegexp" : ""
-  },
-  userConfig = require('./config');
+  defaultConfig = require('./default'),
+  defaultConfigFolder = require('./defaultFolder'),
+  userConfig = require('./config')
+;
 
 // Check that project exists in config.
 if (!userConfig[arguments.project]){
@@ -52,33 +40,38 @@ if (!Array.isArray(config.folders)){
 }
 
 // Apply the default config to each element
-for (var key in config.folders){
-  config.folders[key] = extend(true, {}, defaultConfigFolder, config.folders[key]);
+config.folders.forEach(function(folder, key){
+  folder = extend(true, {}, defaultConfigFolder, folder);
 
   // Convert the regexp into a regexp object
-  if (config.folders[key].fileFilterRegexp.length > 0){
-    config.folders[key].fileFilterRegexp = new RegExp(config.folders[key].fileFilterRegexp, 'i');
+  if (folder.source.fileFilterRegexp.length > 0){
+    folder.source.fileFilterRegexp = new RegExp(folder.source.fileFilterRegexp, 'i');
   }
 
   // Check that template exists
-  pmd.validatePathRef(config.folders[key].template, 'template');
-  config.folders[key].templateContent = fs.readFileSync(path.resolve(config.folders[key].template),'utf8');
+  pmd.validatePathRef(folder.template, 'template');
+  folder.templateContent = fs.readFileSync(path.resolve(folder.template),'utf8');
 
   // Check that the srcPath exists
-  pmd.validatePathRef(config.folders[key].srcPath, 'srcPath');
+  pmd.validatePathRef(folder.source.path, 'folder.source.path');
 
-  // Check if output path exists
-  if (config.folders[key].outputPath.length == 0){
-    // Calling pmd.validatePathRef so same message
-    pmd.validatePathRef(config.folders[key].outputPath, 'outputPath');
+  // Check if output path is defined
+  if (folder.output.path.length == 0){
+    pmd.raiseError('folder.output.path is required', true);
   }
 
   // Create outputPath if doesn't exist
-  if (!fs.existsSync(path.resolve(config.folders[key].outputPath))){
-    fs.mkdirSync(path.resolve(config.folders[key].outputPath));
+  if (!fs.existsSync(path.resolve(folder.output.path))){
+    fs.mkdirSync(path.resolve(folder.output.path));
   }
 
-}// var key in config.folders
+  config.folders[key] = folder;
+
+});// config.folders.forEach
+
+if (config.toc.template){
+  pmd.validatePathRef(config.toc.template, 'config.toc.template');
+}
 
 
 // Process data and write to file
