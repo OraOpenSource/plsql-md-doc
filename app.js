@@ -27,6 +27,7 @@ var config = extend(true, {}, defaultConfig, userConfig[arguments.project]);
 
 
 debug.debug = config.debug;
+debug.setup();
 pmd.debug = debug
 
 // only call debug from this point on
