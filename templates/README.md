@@ -5,3 +5,4 @@ This folder contains some recommended templates that can be used for generating 
 Template | Description
 --- | ---
 [`package.md`](package.md) | For packages.
+[`toc.md`](toc.md) | For Table of Contents.
