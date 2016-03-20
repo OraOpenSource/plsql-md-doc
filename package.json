@@ -1,5 +1,5 @@
 {
-  "name": "PLSQL to Markdown",
+  "name": "plsql-to-markdown",
   "author": "Martin Giffy D'Souza",
   "version": "1.0.0",
   "description": "Converts PL/SQL javadoc documentation to markdown",
