@@ -12,8 +12,8 @@ This document outlines all the JavaDoc options for PL/SQL as well as examples on
   - [`@param`](#tag-param)
   - [`@private`](#tag-private)
   - [`@return`](#tag-return)
-- [`@constant`]s(#constants)
-- [`@type`]s(#types)
+- [`@constant`](#constants)s
+- [`@type`](#types)s
 
 
 
