@@ -105,7 +105,7 @@ Template:
 ```markdown
 {{#if example}}
 ### Example
-\`plsql
+```plsql
 {{{example}}}
 \`\`\`
 {{/if}}
@@ -119,7 +119,7 @@ Result:
 select *
 into l_temp
 from dual;
-\```
+\`\`\`
 ```
 
 #### <a name="tag-issue"></a>`@issue`
