@@ -329,3 +329,19 @@ rec_param | <pre>type rec_param is record(<br />  name varchar2(255),<br />  val
 tab_param | <pre>type tab_param is table of rec_param index by binary_integer;</pre> | Table of custom record
 
 ```
+
+
+
+
+## Table of Contents (TOC)
+
+If you want to create a TOC specify a template in the [config](#docs/config.json) file. The following objects are available in for the TOC template:
+
+Name | Description
+--- | ---
+`files` | Array of files. (description below)
+`files[].name` | Name of entity
+`files[].fileName` | Full file name, including extension
+`projectName` | Name of the project as defined in [`config.json`](#docs/config.json)
+
+The [`templates`](/templates) folder contains an example [`toc.md`](/templates/toc.md) file.

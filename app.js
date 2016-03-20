@@ -14,8 +14,13 @@ var arguments = pmd.getArguments(process);
 
 var
   defaultConfig = {
+    "projectName" : "",
     "debug" : false,
-    "folders" : {}
+    "folders" : {},
+    "templates" : {},
+    "toc" : {
+      "fileName" : "index.md"
+    }
   },
   defaultConfigFolder = {
     "srcPath" : "",
@@ -31,6 +36,8 @@ if (!userConfig[arguments.project]){
 }
 
 var config = extend(true, {}, defaultConfig, userConfig[arguments.project]);
+
+
 debug.debug = config.debug;
 pmd.debug = debug
 
@@ -78,3 +85,6 @@ for (var key in config.folders){
 var objs = pmd.generateData(config);
 objs = pmd.mergeObjs(objs);
 pmd.saveToFile(objs);
+
+
+pmd.generateToc(config, objs);
