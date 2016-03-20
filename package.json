@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "description": "Converts PL/SQL javadoc documentation to markdown",
   "license": "MIT",
+  "scripts": {
+    "install": "node postinstall.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/OraOpenSource/plsql-md-doc.git"

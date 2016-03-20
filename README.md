@@ -12,11 +12,32 @@
   - [`@private`](#tag-private)
   - [`@return`](#tag-return)
 
+## Install, Setup, and Updates
+
+### Install
+
+You only need once instance of PL/SQL to MD on your system as the configuration can handle multiple projects.
+
+```bash
+git clone https://github.com/OraOpenSource/plsql-md-doc
+cd plsql-md-doc
+npm install
+```
+
+### Setup
+
+By default a `config.json` file is created. Please review the [`config.json`](/docs/config.json.md) docs before editing.
+
+### Update
+
+Go to the project folder
+```bash
+git update
+npm install
+```
+
 ## Documentation
 
-### <a name ="config"></a>`config.json`
-
-TODO: reference generate.js
 
 ### <a name ="ignore"></a>Ignore
 Blocks of code can be ignored by using a `!`. These won't be available for the template to process at all. Example:
