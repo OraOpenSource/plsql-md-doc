@@ -102,8 +102,7 @@ Example:
 ```
 
 Template:
-<pre><code class="markdown">
-{{#if example}}
+<pre><code class="markdown">{{#if example}}
 ### Example
 ```plsql
 {{{example}}}
@@ -113,8 +112,7 @@ Template:
 
 Result:
 
-<pre><code class="markdown">
-### Example
+<pre><code class="markdown">### Example
 ```plsql
 select *
 into l_temp
