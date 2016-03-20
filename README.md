@@ -363,6 +363,6 @@ Name | Description
 `files` | Array of files. (description below)
 `files[].name` | Name of entity
 `files[].fileName` | Full file name, including extension
-`projectName` | Name of the project as defined in [`config.json`](#docs/config.json)
+`projectDispName` | Name of the project as defined in [`config.json`](#docs/config.json)
 
 The [`templates`](/templates) folder contains an example [`toc.md`](/templates/toc.md) file.

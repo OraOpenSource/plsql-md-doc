@@ -22,7 +22,6 @@ if (!fs.existsSync(configFile)) {
         },
         "template" : ""
       },
-      "projectName" : "",
       "toc" : {
         "fileName" : "index.md",
         "template" : ""

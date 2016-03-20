@@ -30,6 +30,12 @@ debug.setup();
 pmd.debug = debug
 
 // only call debug from this point on
+
+// #10
+if (config.projectDispName.trim().length === 0){
+  config.projectDispName = arguments.project;
+}
+
 debug.log('config: ', config);
 
 
