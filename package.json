@@ -9,7 +9,7 @@
     "url": "https://github.com/OraOpenSource/plsql-md-doc.git"
   },
   "dependencies": {
-    "dox": "0.8.*",
+    "dox": "git+https://github.com/martindsouza/dox.git",
     "fs-extra": "^0.26.7",
     "handlebars": "4.0.*",
     "node.extend": "^1.1.5"
