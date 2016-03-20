@@ -61,8 +61,11 @@ config.folders.forEach(function(folder, key){
   }
 
   // Create outputPath if doesn't exist
-  if (!fs.existsSync(path.resolve(folder.output.path))){
-    fs.mkdirSync(path.resolve(folder.output.path));
+  fs.ensureDirSync(path.resolve(folder.output.path));
+
+  // #11 Delete if told to
+  if (folder.output.delete){
+    fs.emptydirSync(path.resolve(folder.output.path));
   }
 
   config.folders[key] = folder;
