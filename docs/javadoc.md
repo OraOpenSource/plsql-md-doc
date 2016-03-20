@@ -105,7 +105,7 @@ Template:
 ```markdown
 {{#if example}}
 ### Example
-\`\`\`plsql
+\`plsql
 {{{example}}}
 \`\`\`
 {{/if}}
