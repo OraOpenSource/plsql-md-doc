@@ -5,7 +5,7 @@ var
   Handlebars = require('./lib/handlebars.js'),
   extend = require('node.extend'),
   debug = require('./lib/debug.js'),
-  pmd = require('./lib/pmd.js')(debug)
+  pmd = require('./lib/pmd.js')(debug, extend)
 ;
 
 
@@ -75,6 +75,8 @@ for (var key in config.folders){
 
 
 // Loop over each folder in the project and generate files
+var objs = []; // Array containing each entity for process
+
 config.folders.forEach(function(folder){
   var
     files = fs.readdirSync(path.resolve(folder.srcPath)),
@@ -86,7 +88,6 @@ config.folders.forEach(function(folder){
     // Will create (if not exists) and wipe
     fs.emptyDirSync(path.resolve(__dirname,'debug'));
   }//config.debug
-
 
   for (var i in files){
     var
@@ -147,18 +148,26 @@ config.folders.forEach(function(folder){
         continue; // Skip this loop iteration
       }
 
-      markdown = template(data);
-
       // Output JSON and md data
       if (config.debug){
         debug.logFile(file.name + file.ext + '.json', JSON.stringify(data, null, '  '));
-        debug.logFile(file.name + file.ext + '.md', markdown);
+        // TODO mdsouza: move to below
+        // debug.logFile(file.name + file.ext + '.md', markdown);
       }
 
-      // Write file
-      fs.writeFileSync(path.resolve(folder.outputPath,file.name + '.md'), markdown);
-
+      objs.push(
+        {
+          fileData: data,
+          template: template,
+          folder: folder
+        }
+      );
     }//if regexp pass or no regexp
   }// for i in files
 
 }); //config.folders.forEach
+
+
+
+objs = pmd.mergeObjs(objs);
+pmd.saveToFile(objs);
