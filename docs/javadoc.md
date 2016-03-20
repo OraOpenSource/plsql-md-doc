@@ -115,11 +115,11 @@ Result:
 
 ```markdown
 ### Example
-```plsql
+!```!plsql
 select *
 into l_temp
 from dual;
-```
+!```!
 ```
 
 #### <a name="tag-issue"></a>`@issue`
