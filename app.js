@@ -1,7 +1,6 @@
 var
   path = require('path'),
   fs = require('./lib/fs.js'),
-  fse = require('fs-extra'),
   Handlebars = require('./lib/handlebars.js'),
   extend = require('node.extend'),
   debug = require('./lib/debug.js'),
