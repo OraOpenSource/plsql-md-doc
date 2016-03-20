@@ -12,14 +12,14 @@ This document outlines all the JavaDoc options for PL/SQL as well as examples on
   - [`@param`](#tag-param)
   - [`@private`](#tag-private)
   - [`@return`](#tag-return)
-- [Constants](#constants)
-- [Types](#types)
+- [`@constant`]s(#constants)
+- [`@type`]s(#types)
 
 
 
 ## <a name ="intro"></a>Intro
 
-[JavaDoc](http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html) is a documentation notation created for Java applications. It can also be extended to other programming languages, in this case PL/SQL. The standard format for JavaDoc comments is as follows:
+[JavaDoc](http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html) is a documentation notation created for Java applications. It can also be extended to other programming languages, in this case PL/SQL. The standard format for JavaDoc comments is:
 
 ```plsql
 ...
@@ -34,13 +34,13 @@ procedure some_proc(p_x in varchar2, p_y in varchar2)
 ...
 ```
 
-For examples of JavaDoc in a real application check out the [OOS-Utils](https://github.com/OraOpenSource/oos-utils) project.
+For more examples of JavaDoc check out the [OOS-Utils](https://github.com/OraOpenSource/oos-utils) project.
 
 
 ## <a name ="ignore"></a>Ignore
-Blocks of code can be ignored by using `/*!` instead of `/**` to start the documentation. If a block of code is ignored it won't be available for the template to process. Example:
+Blocks of code can be ignored by using `/*!` instead of `/**` to start the block of documentation. If a block of code is ignored it won't be available for the template to process. Example:
 
-```md
+```plsql
 /**
  * Not ignored.
  */
@@ -67,13 +67,13 @@ Example:
 
 Template Reference:
 
-```md
+```markdown
 Author: {{author}}
 ```
 
 Result:
 
-```md
+```markdown
 Author: Martin Giffy D'Souza
 ```
 
@@ -102,29 +102,24 @@ Example:
 ```
 
 Template:
-
-```md
-<pre>
+```markdown
 {{#if example}}
 ### Example
-\`\`\`plsql
+``````plsql
 {{{example}}}
-\`\`\`
+``````
 {{/if}}
-</pre>
 ```
 
 Result:
 
-```md
-<pre>
+```markdown
 ### Example
-\`\`\`plsql
+``````plsql
 select *
 into l_temp
 from dual;
-\`\`\`
-</pre>
+``````
 ```
 
 #### <a name="tag-issue"></a>`@issue`
@@ -145,7 +140,7 @@ Example: _Note: the leading hash does not matter_
 ```
 
 Template Reference:
-```md
+```markdown
 {{#if issues}}
 ### Issues
 Issue | Description
@@ -158,7 +153,7 @@ Issue | Description
 
 Result:
 
-```md
+```markdown
 ### Issues
 Issue | Description
 --- | ---
@@ -185,7 +180,7 @@ Example:
 ```
 
 Template Reference:
-```md
+```markdown
 {{#if params}}
 ### Parameters
 Name | Description
@@ -198,7 +193,7 @@ Name | Description
 
 Result:
 
-```md
+```markdown
 ### Parameters
 Name | Description
 --- | ---
@@ -223,7 +218,7 @@ Example:
 ```
 
 Template Reference:
-```md
+```markdown
 {{#each methods}}
 {{#unless isPrivate}}
 
@@ -247,9 +242,9 @@ Example:
  */
 ```
 
-Template Reference: _Note: since since the `@return` option is very similar to an [`@param`](#tag-param), it is recommended that it is included with parameters._
+Template Reference: _Note: since the [`@return`](#tag-return) option is very similar to an [`@param`](#tag-param), it is recommended that it is included with parameters._
 
-```md
+```markdown
 {{#ifCond params '||' return}}
 ### Parameters
 Name | Description
@@ -265,7 +260,7 @@ Name | Description
 
 Result:
 
-```md
+```markdown
 ### Parameters
 Name | Description
 --- | ---
@@ -273,7 +268,7 @@ p_user_id |
 *return* | User first name
 ```
 
-## <a name="constants"></a>Constants
+## <a name="constants"></a>`@constant`s
 
 Constants should be placed at the top of the package. There should only be one JavaDoc documentation area for constants. Constants are documented using the `@constant` tag and use the notation: `@constant <constant name> <optional description>`.
 
@@ -291,7 +286,7 @@ gc_color_blue constant varchar2(10) := 'blue';
 
 Template Reference: The `@constant` tag is referenced in the template as an array of objects. Each entry contains attributes: `name`, `code`, `description`, and `isPrivate`. The following example creates a header entry and a table of constants along with the code.
 
-```md
+```markdown
 {{#each constants}}
 {{#if @first}}
 ## Constants
@@ -303,7 +298,7 @@ Name | Code | Description
 
 Result:
 
-```md
+```markdown
 ## Constants
 
 Name | Code | Description
@@ -312,7 +307,7 @@ gc_color_red | `gc_color_red constant varchar2(10) := 'red';` | The css safe col
 gc_color_blue | `gc_color_blue constant varchar2(10) := 'blue';` | The css safe color for blue
 ```
 
-### <a name="types"></a>Types
+### <a name="types"></a>`@type`s
 
 Types are very similar to [constants](#constants). They should be placed at the top of the package. There should only be one JavaDoc documentation area for constants. Types are documented using the `@type` tag and use the notation: `@type <type name> <optional description>`
 
@@ -332,7 +327,7 @@ type tab_param is table of rec_param index by binary_integer;
 
 Template Reference: The `@type` tag is referenced in the template as an array of objects. Each entry contains attributes: `name`, `code`, `description`, `isPrivate`. The following example creates a header entry and a table of types along with the code. Note: types may contain multiline blocks of code. This does not work well with markdown tables. To get around this issue it is recommended to use the notation shown in the example.
 
-```md
+```markdown
 {{#each types}}
 {{#if @first}}
 ## Types
@@ -344,7 +339,7 @@ Name | Code | Description
 
 Result:
 
-```md
+```markdown
 ## Types
 
 Name | Code | Description
