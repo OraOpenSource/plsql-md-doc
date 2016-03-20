@@ -40,7 +40,7 @@ Name | Code | Description
 
 {{! Additional "p" tag required to wrap ul statements }}
 <p>
-{{{description}}}
+{{{description.full}}}
 </p>
 Author: {{author}}
 
@@ -59,7 +59,7 @@ Issue | Description
 {{/if}} {{! issues}}
 
 
-{{#ifCond params '||' return}}
+{{#ifCond params.length '||' return}}
 ### Parameters
 Name | Description
 --- | ---
