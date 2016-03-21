@@ -1,10 +1,13 @@
 # PLSQL to Markdown Documenter
 
-This tool will generate [markdown](https://daringfireball.net/projects/markdown/) from PL/SQL files which use [JavaDoc](http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html) documentation notation. The markdown content is generated using customizable templates which leverage [Handlebars](http://handlebarsjs.com/) for string substitution.
+Converts PL/SQL JavaDoc documentation to markdown
+This tool converts PL/SQL [JavaDoc](http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html) documentation to [markdown](https://daringfireball.net/projects/markdown/). The markdown content is generated using customizable templates which leverage [Handlebars](http://handlebarsjs.com/) for string substitution.
 
 The purpose is to standardize PL/SQL documentation techniques and easily create markdown files which are automatically displayed in popular git repositories such as [GitHub](https://github.com) and [BitBucket](https://bitbucket.org/).
 
 A demo can be found [here](/docs/demo.md) and was not included in this file as it generates markdown. The [OOS-Utils](https://github.com/OraOpenSource/oos-utils) project leverages this tool and its documentation is generated using this.
+
+To make it easier to use with your code, a set of [JavaDoc templates](/docs/javadoc-template.md) have been provided.
 
 
 ## Documentation
