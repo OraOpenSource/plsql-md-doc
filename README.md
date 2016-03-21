@@ -35,3 +35,6 @@ Go to the project folder
 git update
 npm install
 ```
+
+## Run
+To run: `node app <projectName>`.
