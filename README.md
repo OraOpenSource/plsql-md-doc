@@ -1,86 +1,15 @@
 # PLSQL to Markdown Documenter
 
-This tool will generate [markdown](https://daringfireball.net/projects/markdown/) documentation files from PL/SQL files which use [JavaDoc](http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html) notation. The generated markdown content is generated using customizable templates which leverage [Handlebars](http://handlebarsjs.com/) for string substitution.
+This tool will generate [markdown](https://daringfireball.net/projects/markdown/) from PL/SQL files which use [JavaDoc](http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html) documentation notation. The markdown content is generated using customizable templates which leverage [Handlebars](http://handlebarsjs.com/) for string substitution.
 
 The purpose is to standardize PL/SQL documentation techniques and easily create markdown files which are automatically displayed in popular git repositories such as [GitHub](https://github.com) and [BitBucket](https://bitbucket.org/).
 
+A demo can be found [here](/docs/demo.md) and was not included in this file as it generates markdown. The [OOS-Utils](https://github.com/OraOpenSource/oos-utils) project leverages this tool and its documentation is generated using this.
 
 
-## Demo
+## Documentation
 
-In a package file, add the following documentation above the method:
-
-```plsql
-...
-/**
- * Returns true/false if APEX developer is enable
- * Supports both APEX 4 and 5 formats
- *
- * Notes:
- *  -
- * @issue #12 Initial creation
- * @issue 23 Some major update
- * @issue 46
- *
- * @example
- * select *
- * into l_temp
- * from dual;
- *
- * @param p_app_id APEX application ID
- * @param p_page_id APEX page ID
- * @param p_session_id
- *
- * @author Martin Giffy D''Souza
- * @created 29-Dec-2015
- * @return true/false
- */
-function is_developer
-  return boolean
-as
-begin
-...
-```
-
-The above documentation will automatically be converted to:
-
-## <a name="is_developer"></a>IS_DEVELOPER Function
-
-<p>
-<p>Returns true/false if APEX developer is enable<br />Supports both APEX 4 and 5 formats</p><p>Notes:<br /> -</p>
-</p>
-Author: Martin Giffy D&#x27;&#x27;Souza
-
-### Syntax
-```plsql
-function is_developer
-  return boolean
-```
-
-### Tickets
-Issue | Description
---- | ---
-[12](/issues/12) |
-[23](/issues/23) | Some major update
-[46](/issues/46) |
-
-### Parameters
-Name | Description
---- | ---
-p_app_id | APEX application ID
-p_page_id | APEX page ID
-p_session_id |
-*return* | true/false
-
-### Example
-```plsql
-select *
-into l_temp
-from dual;
-```
-
-More demos can be found in the [OOS-Utils](https://github.com/OraOpenSource/oos-utils) project as it's using this tool to generate its documentation.
-
+All the documentation is available in the [docs](/docs) folder.
 
 
 ## Install, Setup, and Updates
@@ -97,7 +26,7 @@ npm install
 
 ### Setup
 
-By default a `config.json` file is created. Please review the [`config.json`](/docs/config.json.md) docs before editing.
+By default a `config.json` file is created. Review the [`config.json`](/docs/config.json.md) docs before editing.
 
 ### Update
 
@@ -106,5 +35,3 @@ Go to the project folder
 git update
 npm install
 ```
-
-## Documentation
