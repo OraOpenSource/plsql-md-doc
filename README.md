@@ -1,4 +1,4 @@
-# PLSQL to Markdown Documenter
+# PL/SQL to Markdown Documenter
 
 Converts PL/SQL JavaDoc documentation to markdown
 This tool converts PL/SQL [JavaDoc](http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html) documentation to [markdown](https://daringfireball.net/projects/markdown/). The markdown content is generated using customizable templates which leverage [Handlebars](http://handlebarsjs.com/) for string substitution.
