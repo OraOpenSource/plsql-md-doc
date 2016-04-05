@@ -42,29 +42,18 @@ Name | Code | Description
 <p>
 {{{description.full}}}
 </p>
-Author: {{author}}
 
 ### Syntax
 ```plsql
-{{header}}
+{{{header}}}
 ```
-
-{{#if issues}}
-### Tickets
-Issue | Description
---- | ---
-{{#each issues}}
-[{{number}}](/issues/{{number}}) | {{description}}
-{{/each}}
-{{/if}} {{! issues}}
-
 
 {{#ifCond params.length '||' return}}
 ### Parameters
 Name | Description
 --- | ---
 {{#each params}}
-{{name}} | {{{description}}}
+`{{name}}` | {{{description}}}
 {{/each}}
 {{#if return}}
 *return* | {{return}}
