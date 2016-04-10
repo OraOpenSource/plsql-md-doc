@@ -1,7 +1,7 @@
 # {{toUpperCase name}}
 
 {{#if types}}
-- [Data Types](#dataTypes)
+- [Data Types](#types)
 {{/if}}
 {{#if constants}}
 - [Constants](#constants)
