@@ -35,7 +35,7 @@ Name | Code | Description
 
 {{#each methods}}
 {{#unless isPrivate}} {{! Don't show private methods}}
-## <a name="{{name}}"></a>{{toUpperCase name}} {{initCap type}}
+## {{toUpperCase name}} {{initCap type}}<a name="{{name}}"></a>
 
 
 {{! Additional "p" tag required to wrap ul statements }}
