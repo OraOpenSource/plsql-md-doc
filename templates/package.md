@@ -14,7 +14,7 @@
 {{! Constants}}
 {{#each constants}}
 {{#if @first}}
-## <a name="constants"></a>Constants
+## Constants<a name="constants"></a>
 
 Name | Code | Description
 --- | --- | ---{{/if}}{{! first}}
@@ -25,7 +25,7 @@ Name | Code | Description
 {{! Types}}
 {{#each types}}
 {{#if @first}}
-## <a name="types"></a>Types
+## Types<a name="types"></a>
 
 Name | Code | Description
 --- | --- | ---{{/if}}{{! first}}
