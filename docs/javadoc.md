@@ -52,7 +52,7 @@ Blocks of code can be ignored by using `/*!` instead of `/**` to start the block
 
 ## Tags<a name="tags"></a>
 
-### `@author`<a name="tag-author"></a>
+### `@author` <a name="tag-author"></a>
 
 `@author <author name>`
 
@@ -77,13 +77,13 @@ Result:
 Author: Martin Giffy D'Souza
 ```
 
-### `@created`<a name="tag-created"></a>
+### `@created` <a name="tag-created"></a>
 
 `@created` Is used to note the date the method was created.
 
 Example: see [`@author`](#tag-author)
 
-### `@example`<a name="tag-example"></a>
+### `@example` <a name="tag-example"></a>
 
 This tag allows you to include a full multiline example of your code along with any results.
 
@@ -120,7 +120,7 @@ from dual;
 ```
 </code></pre>
 
-#### `@issue`<a name="tag-issue"></a>
+#### `@issue` <a name="tag-issue"></a>
 
 `@issue <number> <description (optional)>`
 
@@ -160,7 +160,7 @@ Issue | Description
 [46](/issues/46) |
 ```
 
-### `@param`<a name="tag-param"></a>
+### `@param` <a name="tag-param"></a>
 
 `@param <name> <description (optional)>`
 
@@ -200,7 +200,7 @@ p_page_id | APEX page ID
 p_session_id |
 ```
 
-### `@private`<a name="tag-private"></a>
+### `@private` <a name="tag-private"></a>
 
 The `@private` tag is used on private methods. You can chose if these methods should be displayed by the template. Reference it in the template by using the `isPrivate` attribute.
 
@@ -225,7 +225,7 @@ Items shown here will only be displayed if not private
 {{/each}}
 ```
 
-### `@return`<a name="tag-return"></a>
+### `@return` <a name="tag-return"></a>
 
 `@return` Is used to describe the object returned by a function.
 
