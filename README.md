@@ -12,7 +12,8 @@ To make it easier to use with your code, a set of [JavaDoc templates](/docs/java
 
 ## Documentation
 
-All the documentation is available in the [docs](/docs) folder.
+- [Recommended Docs](http://plsql-md-doc.readthedocs.org/en/latest/README/)
+- MD[docs](/docs) folder
 
 
 ## Install, Setup, and Updates
