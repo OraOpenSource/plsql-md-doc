@@ -17,7 +17,7 @@ This document outlines all the JavaDoc options for PL/SQL as well as examples on
 
 
 
-## <a name ="intro"></a>Intro
+## Intro<a name ="intro"></a>
 
 [JavaDoc](http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html) is a documentation notation created for Java applications. It can also be extended to other programming languages, in this case PL/SQL. The standard format for JavaDoc comments is:
 
@@ -37,7 +37,7 @@ procedure some_proc(p_x in varchar2, p_y in varchar2)
 For more examples of JavaDoc check out the [OOS-Utils](https://github.com/OraOpenSource/oos-utils) project.
 
 
-## <a name ="ignore"></a>Ignore
+## Ignore<a name ="ignore"></a>
 Blocks of code can be ignored by using `/*!` instead of `/**` to start the block of documentation. If a block of code is ignored it won't be available for the template to process. Example:
 
 ```plsql
@@ -50,9 +50,9 @@ Blocks of code can be ignored by using `/*!` instead of `/**` to start the block
  */
 ```
 
-## <a name="tags"></a>Tags
+## Tags<a name="tags"></a>
 
-### <a name="tag-author"></a>`@author`
+### `@author`<a name="tag-author"></a>
 
 `@author <author name>`
 
@@ -77,13 +77,13 @@ Result:
 Author: Martin Giffy D'Souza
 ```
 
-### <a name="tag-created"></a>`@created`
+### `@created`<a name="tag-created"></a>
 
 `@created` Is used to note the date the method was created.
 
 Example: see [`@author`](#tag-author)
 
-### <a name="tag-example"></a>`@example`
+### `@example`<a name="tag-example"></a>
 
 This tag allows you to include a full multiline example of your code along with any results.
 
@@ -120,7 +120,7 @@ from dual;
 ```
 </code></pre>
 
-#### <a name="tag-issue"></a>`@issue`
+#### `@issue`<a name="tag-issue"></a>
 
 `@issue <number> <description (optional)>`
 
@@ -160,7 +160,7 @@ Issue | Description
 [46](/issues/46) |
 ```
 
-### <a name="tag-param"></a>`@param`
+### `@param`<a name="tag-param"></a>
 
 `@param <name> <description (optional)>`
 
@@ -200,7 +200,7 @@ p_page_id | APEX page ID
 p_session_id |
 ```
 
-### <a name="tag-private"></a>`@private`
+### `@private`<a name="tag-private"></a>
 
 The `@private` tag is used on private methods. You can chose if these methods should be displayed by the template. Reference it in the template by using the `isPrivate` attribute.
 
@@ -225,7 +225,7 @@ Items shown here will only be displayed if not private
 {{/each}}
 ```
 
-### <a name="tag-return"></a>`@return`
+### `@return`<a name="tag-return"></a>
 
 `@return` Is used to describe the object returned by a function.
 
@@ -266,7 +266,7 @@ p_user_id |
 *return* | User first name
 ```
 
-## <a name="constants"></a>`@constant`s
+## `@constant`s<a name="constants"></a>
 
 Constants should be placed at the top of the package. There should only be one JavaDoc documentation area for constants. Constants are documented using the `@constant` tag and use the notation: `@constant <constant name> <optional description>`.
 
@@ -305,7 +305,7 @@ gc_color_red | `gc_color_red constant varchar2(10) := 'red';` | The css safe col
 gc_color_blue | `gc_color_blue constant varchar2(10) := 'blue';` | The css safe color for blue
 ```
 
-### <a name="types"></a>`@type`s
+### `@type`s<a name="types"></a>
 
 Types are very similar to [constants](#constants). They should be placed at the top of the package. There should only be one JavaDoc documentation area for constants. Types are documented using the `@type` tag and use the notation: `@type <type name> <optional description>`
 
