@@ -10,6 +10,15 @@
 - [{{toUpperCase name}} {{initCap type}}](#{{name}})
 {{/each}}
 
+{{! Types}}
+{{#each types}}
+{{#if @first}}
+## Types<a name="types"></a>
+
+Name | Code | Description
+--- | --- | ---{{/if}}{{! first}}
+{{name}} | <pre>{{{lineBreakToBr code}}}</pre> | {{description}}{{/each}}
+{{! types}}
 
 {{! Constants}}
 {{#each constants}}
@@ -20,17 +29,6 @@ Name | Code | Description
 --- | --- | ---{{/if}}{{! first}}
 {{name}} | `{{{code}}}` | {{description}}{{/each}}
 {{! constants}}
-
-
-{{! Types}}
-{{#each types}}
-{{#if @first}}
-## Types<a name="types"></a>
-
-Name | Code | Description
---- | --- | ---{{/if}}{{! first}}
-{{name}} | <pre>{{{lineBreakToBr code}}}</pre> | {{description}}{{/each}}
-{{! types}}
 
 
 {{#each methods}}
