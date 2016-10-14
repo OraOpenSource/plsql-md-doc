@@ -3,19 +3,9 @@
 {{#if types}}
 - [Data Types](#types)
 {{/if}}
-
 {{#if constants}}
 - [Constants](#constants)
 {{/if}}
-
-{{#if variables}}
-- [Variables](#variables)
-{{/if}}
-
-{{#if exceptions}}
-- [Exceptions](#exceptions)
-{{/if}}
-
 {{#each methods}}
 - [{{toUpperCase name}} {{initCap type}}](#{{name}})
 {{/each}}
@@ -30,40 +20,10 @@ Name | Code | Description
 {{name}} | <pre>{{{lineBreakToBr code}}}</pre> | {{description}}{{/each}}
 {{! types}}
 
-{{! Variables}}
-{{#each variables}}
-{{#if @first}}
-## Variables<a name="variables"></a>
-
-Name | Code | Description
---- | --- | ---{{/if}}{{! first}}
-{{name}} | <pre>{{{lineBreakToBr code}}}</pre> | {{description}}{{/each}}
-{{! variables}}
-
 {{! Constants}}
 {{#each constants}}
 {{#if @first}}
 ## Constants<a name="constants"></a>
-
-Name | Code | Description
---- | --- | ---{{/if}}{{! first}}
-{{name}} | <pre>{{{lineBreakToBr code}}}</pre> | {{description}}{{/each}}
-{{! constants}}
-
-{{! Exceptions}}
-{{#each exceptions}}
-{{#if @first}}
-## Exceptions<a name="exceptions"></a>
-
-Name | Code | Description
---- | --- | ---{{/if}}{{! first}}
-{{name}} | <pre>{{{lineBreakToBr code}}}</pre> | {{description}}{{/each}}
-{{! exceptions}}
-
-{{! Var}}
-{{#each var}}
-{{#if @first}}
-## Var<a name="var"></a>
 
 Name | Code | Description
 --- | --- | ---{{/if}}{{! first}}
@@ -106,11 +66,6 @@ Name | Description
 ```
 {{/if}}
 
-### Properties
-Name | Description
---- | ---
-Author | {{{author}}}
-Created | {{{created}}}
 
 
 {{/unless}}
