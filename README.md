@@ -13,7 +13,7 @@ To make it easier to use with your code, a set of [JavaDoc templates](/docs/java
 ## Documentation
 
 - [Recommended Docs](http://plsql-md-doc.readthedocs.org/en/latest/README/)
-- MD[docs](/docs) folder
+- MD [docs](/docs) folder
 
 
 ## Install, Setup, and Updates
@@ -36,7 +36,8 @@ By default a `config.json` file is created. Review the [`config.json`](/docs/con
 
 Go to the project folder
 ```bash
-git update
+git fetch origin
+git reset --hard origin/master
 npm install
 ```
 

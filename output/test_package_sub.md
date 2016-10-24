@@ -31,6 +31,7 @@ g_table_type_var | <pre>g_table_type_var   g_table_type;</pre> | A variable whic
 Name | Code | Description
 --- | --- | ---
 gc_test_constant | <pre>gc_test_constant    constant varchar2(30) := 'Test constant';</pre> | A string test constant variable
+gc_another_const | <pre>gc_another_const    constant number(10,1) default 10.1;</pre> | A number test constant variable using &#x27;default&#x27; as assignment target
 
 ## Exceptions<a name="exceptions"></a>
 
