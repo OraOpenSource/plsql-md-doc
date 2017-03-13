@@ -1,20 +1,23 @@
+/**
+ * Description about the package itself.
+ *
+ * @author Ramon Esteve Cuevas
+ * @created 13/03/2017
+ */
 create or replace package test_package_sub is
 
-  --CONSTANTS
   /**
    * @constant gc_test_constant            A string test constant variable
    * @constant gc_another_const            A number test constant variable using 'default' as assignment target
    */
   gc_test_constant    constant varchar2(30) := 'Test constant';
   gc_another_const    constant number(10,1) default 10.1;
-  
-  --TYPES
+
   /**
    * @type g_table_type       A test table type
    */
   type g_table_type is table of pls_integer index by varchar2(30);
-  
-  -- VARIABLES
+
   /**
    * @var g_string_var          A test variable which is a string and have a limited amount of characters
    * @var g_number_var          A number variable without a restriction and using the ':=' as assignment target
@@ -27,14 +30,24 @@ create or replace package test_package_sub is
   g_number_limited   number(10, 1) default 10.1;
   g_test_object      test_object   default new test_object();
   g_table_type_var   g_table_type;
-  
-  -- EXCEPTIONS
+
   /**
    * @exception g_no_data_found  A new no_data_found exception!
    */
   g_no_data_found   exception;
   pragma            exception_init(g_no_data_found, -20001);
-  
+
+  /**
+   * A cursor may also be inside a package header.
+   * Selects the value of p_test_param from dual
+   *
+   * @param p_test_param    A test parameter which will also be returned inside the cursor
+   */
+  cursor g_test_cur(p_test_param in varchar2) is
+    select p_test_param
+    from   dual;
+
+
   /**
    * Returns true/false if APEX developer is enable
    * Supports both APEX 4 and 5 formats

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>VARSEXCEPTIONS</title>
+    <title>VARSEXCEPTIONS - TEST_TYPE</title>
     <!-- Foundation CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/foundation/6.2.4/foundation.min.css">
     <!-- Prism CSS -->
@@ -187,13 +187,13 @@
         <!-- /Title -->
 
         <!-- Index Menu -->
-        <div class="small-12 large-3 columns">
-            <nav class="sticky">
+        <div class="small-12 large-3 columns" data-sticky-container>
+            <nav class="sticky" data-sticky data-anchor="main" data-sticky-on="large">
                 <h3>Files</h3>
                 <ul class="menu vertical">
                     <li class=""><a href="test_package.html">TEST_PACKAGE</a></li>
                     <li class=""><a href="test_package_sub.html">TEST_PACKAGE_SUB</a></li>
-                    <li class=""><a href="test_type.html">TEST_TYPE</a></li>
+                    <li class="active"><a href="test_type.html">TEST_TYPE</a></li>
                     <li class=""><a href="test_types.html">TEST_TYPES</a></li>
                     <li class=""><a href="test_view.html">TEST_VIEW</a></li>
                 </ul>
@@ -201,9 +201,60 @@
         </div>
         <!-- /Index Menu -->
 
-        <!-- Main -->
-        <div class="small-12 large-9 columns"></div>
-        <!-- /Main -->
+        <!-- Main Content -->
+        <div id="main" class="small-12 large-6 columns">
+
+            <!-- Main comment -->
+            <section>
+                <h3>test_type</h3>
+                <div class="description lead">
+                    <p>A SQL Object type which holds variables and can be used within the SQL engine</p><p>The variables and function will not be documented. Only the global description has been included</p>
+                </div>
+            </section>
+            <!-- /Main comment -->
+
+            <!-- Types -->
+            <section>
+                <h3>Types</h3>
+                    <p class="lead">No types.</p>
+            </section>
+            <!-- /Types -->
+
+            <!-- Constants -->
+            <section>
+                <h3>Constants</h3>
+                    <p class="lead">No constants.</p>
+            </section>
+            <!-- /Constants -->
+
+            <!-- Variables -->
+            <section>
+                <h3>Variables</h3>
+                <p class="lead">No variables.</p>
+            </section>
+            <!-- /Variables -->
+
+            <!-- Exceptions -->
+            <section>
+                <h3>Exceptions</h3>
+                    <p class="lead">No exceptions.</p>
+            </section>
+            <!-- /Exceptions -->
+
+             
+        </div>
+        <!-- /Main Content -->
+
+        <!-- Right Sidenav -->
+        <div class="small-12 large-3 columns show-for-large" data-sticky-container>
+            <nav class="sticky" data-sticky data-anchor="main" data-sticky-on="large">
+                <h3>Content</h3>
+                <ul class="vertical menu" data-magellan>
+                     
+                </ul>
+            </nav>
+        </div>
+        <!-- /Right Sidenav -->
     </div>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>

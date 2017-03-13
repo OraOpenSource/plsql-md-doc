@@ -191,6 +191,11 @@
             <nav class="sticky" data-sticky data-anchor="main" data-sticky-on="large">
                 <h3>Files</h3>
                 <ul class="menu vertical">
+                    <li class="active"><a href="test_package.html">TEST_PACKAGE</a></li>
+                    <li class=""><a href="test_package_sub.html">TEST_PACKAGE_SUB</a></li>
+                    <li class=""><a href="test_type.html">TEST_TYPE</a></li>
+                    <li class=""><a href="test_types.html">TEST_TYPES</a></li>
+                    <li class=""><a href="test_view.html">TEST_VIEW</a></li>
                 </ul>
             </nav>
         </div>
@@ -198,6 +203,14 @@
 
         <!-- Main Content -->
         <div id="main" class="small-12 large-6 columns">
+
+            <!-- Main comment -->
+            <section>
+                <h3>test_package</h3>
+                <p class="lead">No global description.</p>
+            </section>
+            <!-- /Main comment -->
+
             <!-- Types -->
             <section>
                 <h3>Types</h3>
@@ -218,6 +231,36 @@
                         <p class="lead">A number test constant variable using &#x27;default&#x27; as assignment target</p>
             </section>
             <!-- /Constants -->
+
+            <!-- Variables -->
+            <section>
+                <h3>Variables</h3>
+                        <h5 class="subheader">g_string_var</h5>
+                            <pre class="language-sql"><code class="language-sql">g_string_var       varchar2(100) default 'Test variable';</code></pre>
+                        <p class="lead">A test variable which is a string and have a limited amount of characters</p>
+                        <h5 class="subheader">g_number_var</h5>
+                            <pre class="language-sql"><code class="language-sql">g_number_var       number        := 123456;</code></pre>
+                        <p class="lead">A number variable without a restriction and using the &#x27;:&#x3D;&#x27; as assignment target</p>
+                        <h5 class="subheader">g_number_limited</h5>
+                            <pre class="language-sql"><code class="language-sql">g_number_limited   number(10, 1) default 10.1;</code></pre>
+                        <p class="lead">A number which needs to have 1 decimal</p>
+                        <h5 class="subheader">g_test_object</h5>
+                            <pre class="language-sql"><code class="language-sql">g_test_object      test_object   default new test_object();</code></pre>
+                        <p class="lead">A variable of the Object type: &quot;test_object&quot;</p>
+                        <h5 class="subheader">g_table_type_var</h5>
+                            <pre class="language-sql"><code class="language-sql">g_table_type_var   g_table_type;</code></pre>
+                        <p class="lead">A variable which if of table type: &quot;g_table_type&quot;</p>
+            </section>
+            <!-- /Variables -->
+
+            <!-- Exceptions -->
+            <section>
+                <h3>Exceptions</h3>
+                        <h5 class="subheader">g_no_data_found</h5>
+                            <pre class="language-sql"><code class="language-sql">g_no_data_found   exception;</code></pre>
+                        <p class="lead">A new no_data_found exception!</p>
+            </section>
+            <!-- /Exceptions -->
 
               <!-- Don't show private methods-->
             <section id="IS_DEVELOPER" data-magellan-target="IS_DEVELOPER">
