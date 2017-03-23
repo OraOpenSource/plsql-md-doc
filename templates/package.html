@@ -235,7 +235,7 @@
             <section id="{{toUpperCase name}}" data-magellan-target="{{toUpperCase name}}">
                 <h3>
                     <span class="info label">{{initCap type}}</span>
-                    {{toUpperCase name}}
+                    {{toUpperCase displayName}}
                 </h3>
                 <h5 class="text-right"><small>Created {{#if author}}by {{author}}{{/if}} {{#if created}}on {{created}}{{/if}}</small></h5>
                 {{#ifCond author '||' created}}
@@ -312,7 +312,7 @@
                 <h3>Content</h3>
                 <ul class="vertical menu" data-magellan>
                     {{#each methods}} {{#unless isPrivate}} <!-- Don't show private methods-->
-                    <li><a href="#{{toUpperCase name}}">{{toUpperCase name}}</a></li>
+                    <li><a href="#{{toUpperCase name}}">{{toUpperCase displayName}}</a></li>
                     {{/unless}} {{/each}} {{! methods }}
                 </ul>
             </nav>
