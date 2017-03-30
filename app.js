@@ -86,7 +86,7 @@ if (config.toc.template){
 // Process data and write to file
 var objs = pmd.generateData(config);
 objs = pmd.mergeObjs(objs);
-pmd.saveToFile(config, objs);
 
-
+// First generate the TOC than the files, so the packages also have a TOC
 pmd.generateToc(config, objs);
+pmd.saveToFile(config, objs);
