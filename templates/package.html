@@ -308,11 +308,11 @@
                             <div class="tags">
                                 <ul class="no-bullet">
                                     {{#each params}}
-                                    <li><strong>@param </strong><kbd>{{name}}</kdb> {{{description}}}</li>
+                                    <li><strong>@param </strong><kbd>{{name}}</kbd> {{{description}}}</li>
                                     {{/each}}
                                     {{#if return}}
                                     <br>
-                                    <li><strong>@return </strong><kbd>{{return}}</kdb></li>
+                                    <li><strong>@return </strong><kbd>{{return}}</kbd></li>
                                     {{/if}} {{! return}}
                                 </ul>
                             </div>
@@ -320,6 +320,23 @@
                     </div>
                 </div>
                 {{/ifCond}}
+                
+                {{#if throws.length}}
+                <div class="section-container code auto">
+                    <div class="section active" style="padding-top: 26px;">
+                        <h4 class="title">Thrown exceptions</h4>
+                        <div class="content">
+                            <div class="tags">
+                                <ul class="no-bullet">
+                                    {{#each throws}}
+                                    <li><strong>@throws </strong><kbd>{{{description}}}</kbd></li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/if}}
 
                 {{#if example}}
                 <div class="section-container code auto">

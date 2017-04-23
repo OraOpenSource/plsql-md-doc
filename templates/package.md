@@ -106,6 +106,13 @@ Name | Description
 ```
 {{/if}}
 
+{{#if throws.length}}
+### Thrown exceptions
+{{#each throws}}
+*throws* {{{description}}}
+{{/each}}
+{{/if}}
+
 ### Properties
 Name | Description
 --- | ---
