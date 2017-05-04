@@ -38,12 +38,6 @@ Executes the body with the amount of times inserted as the first parameter
 
 Ex: `{{times 10}}`
 
-### `json`
-
-Makes it able to copy over a JSON object from NodeJS to Client side Javascript
-
-Ex: `{{json jsonObject}}`
-
 ### `now`
 
 Will return the current timestamp
