@@ -31,3 +31,21 @@ Handlebars has basic condition processing. `ifCond` allows for more complex and 
 Ex: `{{#ifCond params.length '||' return}}...{{/ifCond}}`
 
 It's notation is `value1, operator, value2`. The `operator` is a string and can be any of the following: `==`, `===`, `<`, `<=`, `>`, `>=`, `&&`, `||`.
+
+### `times`
+
+Executes the body with the amount of times inserted as the first parameter
+
+Ex: `{{times 10}}`
+
+### `json`
+
+Makes it able to copy over a JSON object from NodeJS to Client side Javascript
+
+Ex: `{{json jsonObject}}`
+
+### `now`
+
+Will return the current timestamp
+
+Ex: `{{now}}`

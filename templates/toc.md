@@ -1,5 +1,4 @@
 # {{toUpperCase projectDispName}}
 
-{{#each files}}
-- [{{toUpperCase name}}]({{fileName}})
-{{/each}}
+{{#each folders}}{{#if name}}* [{{name}}]({{name}}){{/if}}
+{{> list}}{{/each}}
