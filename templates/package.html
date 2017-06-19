@@ -201,6 +201,23 @@
 
         <!-- Main Content -->
         <div id="main" class="small-12 large-6 columns">
+
+            <!-- Main comment -->
+            <section>
+                <h3>{{name}}</h3>
+                {{#if global}}
+                {{#ifCond global.author '||' global.created}}
+                <h5 class="text-right"><small>Created {{#if global.author}}by {{global.author}}{{/if}} {{#if global.created}}on {{global.created}}{{/if}}</small></h5>
+                {{/ifCond}}
+                <div class="description lead">
+                    {{{global.description.full}}}
+                </div>
+                {{else}}
+                <p class="lead">No global description.</p>
+                {{/if}}
+            </section>
+            <!-- /Main comment -->
+
             <!-- Types -->
             <section>
                 <h3>Types</h3>
@@ -231,11 +248,41 @@
             </section>
             <!-- /Constants -->
 
+            <!-- Variables -->
+            <section>
+                <h3>Variables</h3>
+                {{#if variables}}
+                    {{#each variables}}
+                        <h5 class="subheader">{{name}}</h5>
+                            <pre class="language-sql"><code class="language-sql">{{{code}}}</code></pre>
+                        <p class="lead">{{description}}</p>
+                    {{/each}}
+                {{else}}
+                <p class="lead">No variables.</p>
+                {{/if}}
+            </section>
+            <!-- /Variables -->
+
+            <!-- Exceptions -->
+            <section>
+                <h3>Exceptions</h3>
+                {{#if exceptions}}
+                    {{#each exceptions}}
+                        <h5 class="subheader">{{name}}</h5>
+                            <pre class="language-sql"><code class="language-sql">{{{code}}}</code></pre>
+                        <p class="lead">{{description}}</p>
+                    {{/each}}
+                {{else}}
+                    <p class="lead">No exceptions.</p>
+                {{/if}}
+            </section>
+            <!-- /Exceptions -->
+
             {{#each methods}} {{#unless isPrivate}} <!-- Don't show private methods-->
             <section id="{{toUpperCase name}}" data-magellan-target="{{toUpperCase name}}">
                 <h3>
                     <span class="info label">{{initCap type}}</span>
-                    {{toUpperCase name}}
+                    {{toUpperCase displayName}}
                 </h3>
                 <h5 class="text-right"><small>Created {{#if author}}by {{author}}{{/if}} {{#if created}}on {{created}}{{/if}}</small></h5>
                 {{#ifCond author '||' created}}
@@ -261,11 +308,11 @@
                             <div class="tags">
                                 <ul class="no-bullet">
                                     {{#each params}}
-                                    <li><strong>@param </strong><kbd>{{name}}</kdb> {{{description}}}</li>
+                                    <li><strong>@param </strong><kbd>{{name}}</kbd> {{{description}}}</li>
                                     {{/each}}
                                     {{#if return}}
                                     <br>
-                                    <li><strong>@return </strong><kbd>{{return}}</kdb></li>
+                                    <li><strong>@return </strong><kbd>{{return}}</kbd></li>
                                     {{/if}} {{! return}}
                                 </ul>
                             </div>
@@ -273,6 +320,23 @@
                     </div>
                 </div>
                 {{/ifCond}}
+                
+                {{#if throws.length}}
+                <div class="section-container code auto">
+                    <div class="section active" style="padding-top: 26px;">
+                        <h4 class="title">Thrown exceptions</h4>
+                        <div class="content">
+                            <div class="tags">
+                                <ul class="no-bullet">
+                                    {{#each throws}}
+                                    <li><strong>@throws </strong><kbd>{{{description}}}</kbd></li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/if}}
 
                 {{#if example}}
                 <div class="section-container code auto">
@@ -312,7 +376,7 @@
                 <h3>Content</h3>
                 <ul class="vertical menu" data-magellan>
                     {{#each methods}} {{#unless isPrivate}} <!-- Don't show private methods-->
-                    <li><a href="#{{toUpperCase name}}">{{toUpperCase name}}</a></li>
+                    <li><a href="#{{toUpperCase name}}">{{toUpperCase displayName}}</a></li>
                     {{/unless}} {{/each}} {{! methods }}
                 </ul>
             </nav>
