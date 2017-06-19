@@ -27,7 +27,7 @@
 
 Name | Code | Description
 --- | --- | ---{{/if}}{{! first}}
-{{name}} | <pre>{{{lineBreakToBr code}}}</pre> | {{description}}{{/each}}
+{{name}} | <pre>{{{lineBreakToBr code}}}</pre> | {{{description}}}{{/each}}
 {{! types}}
 
 {{! Variables}}
@@ -37,7 +37,7 @@ Name | Code | Description
 
 Name | Code | Description
 --- | --- | ---{{/if}}{{! first}}
-{{name}} | <pre>{{{lineBreakToBr code}}}</pre> | {{description}}{{/each}}
+{{name}} | <pre>{{{lineBreakToBr code}}}</pre> | {{{description}}}{{/each}}
 {{! variables}}
 
 {{! Constants}}
