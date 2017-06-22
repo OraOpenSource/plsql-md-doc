@@ -113,12 +113,13 @@ Name | Description
 {{/each}}
 {{/if}}
 
+{{!-- Uncomment if you want properties included in docs
 ### Properties
 Name | Description
 --- | ---
 Author | {{{author}}}
 Created | {{{created}}}
-
+ --}}
 
 {{/unless}}
 {{/each}} {{! methods }}
