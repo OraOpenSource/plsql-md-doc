@@ -12,6 +12,7 @@ This document outlines all the JavaDoc options for PL/SQL as well as examples on
   - [`@param`](#tag-param)
   - [`@private`](#tag-private)
   - [`@return`](#tag-return)
+- [Package Level Comments](#package-level)s
 - [`@constant`](#constants)s
 - [`@type`](#types)s
 
@@ -264,6 +265,29 @@ Name | Description
 --- | ---
 p_user_id |
 *return* | User first name
+```
+
+## Package Level Comments<a name="package-level"</a>
+Packages may contain JavaDoc comments as well. The following is an example of package level documentation:
+
+```plsql
+/**
+ * Some package level comments
+ * Another line
+ * @author Martin D'Souza
+ * @created 18-Jul-2017
+ */
+create or replace package body oos_util_apex
+...
+```
+
+```markdown
+{{#if global}}
+## Package Description
+{{#if global.author}}Author: {{global.author}} {{/if}}
+{{#if global.created}}Created: {{global.created}} {{/if}}
+{{{global.description.full}}}
+{{/if}}
 ```
 
 ## `@constant`s<a name="constants"></a>

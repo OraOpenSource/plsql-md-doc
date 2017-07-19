@@ -1,5 +1,10 @@
 # {{toUpperCase name}}
 
+{{#if global}}
+## Package Description
+{{{global.description.full}}}
+{{/if}}
+
 {{#if types}}
 - [Data Types](#types)
 {{/if}}
