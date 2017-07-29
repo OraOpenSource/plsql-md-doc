@@ -1,3 +1,0 @@
-{{#each children}} {{! Each item is an "li" }}{{#if fileData}}{{#if fileData.isFolder}}{{#times depth}}    {{/times}}* [{{fileData.name}}]({{fileData.docFileName}})
-{{else}}{{#times depth}}    {{/times}}* [{{fileData.name}}]({{fileData.docFileName}})
-{{/if}}{{#if children}}{{! Within the context of the current item }}{{> list}}{{! Recursively render the partial }}{{/if}}{{else}}{{#if children}}{{! Within the context of the current item }}{{> list}}{{! Recursively render the partial }}{{/if}}{{/if}}{{/each}}

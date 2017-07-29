@@ -31,15 +31,3 @@ Handlebars has basic condition processing. `ifCond` allows for more complex and 
 Ex: `{{#ifCond params.length '||' return}}...{{/ifCond}}`
 
 It's notation is `value1, operator, value2`. The `operator` is a string and can be any of the following: `==`, `===`, `<`, `<=`, `>`, `>=`, `&&`, `||`.
-
-### `times`
-
-Executes the body with the amount of times inserted as the first parameter
-
-Ex: `{{times 10}}`
-
-### `now`
-
-Will return the current timestamp
-
-Ex: `{{now}}`

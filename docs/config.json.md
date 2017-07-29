@@ -8,7 +8,6 @@ When this project is installed a default `config.json` is generated in the proje
 {
   "<projectName>" : {
     "debug" : false,
-    "search": false,
     "folders" : {
       "output" : {
         "path" : "/Users/giffy/Documents/GitHub/oraopensource/oos-utils/docs"
@@ -34,7 +33,6 @@ Parameter | Required | Description
 --- | --- | ---
 `<projectName>` | required | Unique name of the project.
 `<projectName>.debug` | optional | Default: `false`. Run app in debug mode.
-`<projectName>.search` | optional | Default: `false`. Also enable the search module (only available for HTML templates).
 `<projectName>.folders` | required | single JSON object array of objects. Use the an array if the project has multiple folders to process.
 `<projectName>.folders.output` | required | JSON object for output information
 `<projectName>.folders.output.delete` | optional | Boolean to delete contents in folder. Default `false`.

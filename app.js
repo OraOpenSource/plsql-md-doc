@@ -4,8 +4,7 @@ var
   Handlebars = require('./lib/handlebars.js'),
   extend = require('node.extend'),
   debug = require('./lib/debug.js'),
-  pmd = require('./lib/pmd.js')(debug, extend),
-  search = require('./lib/search.js')(debug, extend)
+  pmd = require('./lib/pmd.js')(debug, extend)
 ;
 
 
@@ -88,10 +87,6 @@ if (config.toc.template){
 var objs = pmd.generateData(config);
 objs = pmd.mergeObjs(objs);
 
+// First generate the TOC than the files, so the packages also have a TOC
 pmd.generateToc(config, objs);
-pmd.saveToFile(config, pmd.globalFiles);
-
-// Check if the search library is enabled
-if(config.search) {
-  search.run(config, pmd.globalFiles);
-}
+pmd.saveToFile(config, objs);
