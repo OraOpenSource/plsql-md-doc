@@ -1,5 +1,5 @@
 # {{toUpperCase projectDispName}}
 
 {{#each files}}
-- [{{toUpperCase name}}]({{fileName}})
+- [{{toUpperCase name}}]({{docFileName}})
 {{/each}}
