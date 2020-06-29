@@ -14,7 +14,7 @@
   "dependencies": {
     "dox": "git+https://github.com/martindsouza/dox.git",
     "fs-extra": "^0.26.7",
-    "handlebars": "4.0.*",
+    "handlebars": "4.7.*",
     "node.extend": "^1.1.5"
   }
 }
