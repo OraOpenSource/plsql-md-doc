@@ -22,7 +22,9 @@
 {{/if}}
 
 {{#each methods}}
+{{#unless isPrivate}} {{! Don't show private methods}}
 - [{{toUpperCase name}} {{initCap type}}](#{{name}})
+{{/unless}}
 {{/each}}
 
 {{! Types}}
